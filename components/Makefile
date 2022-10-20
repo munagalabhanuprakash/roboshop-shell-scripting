@@ -1,2 +1,2 @@
 frontend:
-	bash components/01-frontend.sh
+	bash 01-frontend.sh
