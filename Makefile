@@ -1,5 +1,5 @@
 frontend:
-	Running frontend script..
+	echo Running frontend script..
 	@bash components/01-frontend.sh
 
 
