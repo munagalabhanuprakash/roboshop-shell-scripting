@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-checkRootUser()
+CHECKUSER()
 {
 USER_ID=$(id -u)
 if [ "$USER_ID" -ne "0" ];
@@ -10,7 +10,7 @@ then
 fi
 }
 
-StatusCheck()
+COMMANDSTATUSCHEK()
 {
 if [ "$?" -eq "0" ]; then
   echo -e "\e[32mSUCCESS\e[0m"
