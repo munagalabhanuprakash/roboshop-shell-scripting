@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-echo This is cart
+source components/00-commons.sh
+CHECKROOTUSER
+
