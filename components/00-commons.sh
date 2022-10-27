@@ -17,5 +17,5 @@ if [ "$?" -eq "0" ]; then
 else
   echo -e "\e[31mFAILURE\e[0m"
   exit 1
-  fi
+fi
 #}

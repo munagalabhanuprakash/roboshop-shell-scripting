@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source components/00-commons.sh
-CHECKROOTUSER
+checkRootUser
 
 echo "Installing NGINX.."
 yum install nginx -y > /tmp/frontendoutput
