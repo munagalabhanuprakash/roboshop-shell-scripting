@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 echo Running frontend script..
-
+USER_ID=$(id -u)
+if ["$USER_ID" -ne "0"]
+then
+  echo You are supposed to run these commands using sudo
+else
 yum install nginx -y
 systemctl enable nginx
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
@@ -13,3 +17,5 @@ mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 systemctl restart nginx
+
+fi
