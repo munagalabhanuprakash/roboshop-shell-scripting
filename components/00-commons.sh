@@ -22,7 +22,7 @@ fi
 }
 
 LOG_FILE=/tmp/frontendoutput.log
-rm-f $LOG_FILE
+rm -f $LOG_FILE
 
 ECHO()
 {
