@@ -4,7 +4,7 @@ source components/00-commons.sh
 CHECKUSER
 
 ECHO "Installing NGINX.."
-yumss install nginx -y &>>${LOG_FILE}
+yum install nginx -y &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
 ECHO "Enabling NGINX.."
@@ -26,9 +26,7 @@ unzip /tmp/frontend.zip &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
 ECHO "copying extracted content.."
-mv frontend-main/* . &>>${LOG_FILE}
-mv static/* . &>>${LOG_FILE}
-rm -rf frontend-main README.md &>>${LOG_FILE}
+mv frontend-main/* . &>>${LOG_FILE} && mv static/* . &>>${LOG_FILE} && rm -rf frontend-main README.md &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
 ECHO "copying nginx roboshop config.."
