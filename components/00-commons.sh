@@ -19,3 +19,12 @@ else
   exit 1
 fi
 }
+
+LOG_FILE=/tmp/frontendoutput.log
+rm-f $LOG_FILE
+
+ECHO()
+{
+  echo "===================================$1==================================="
+  echo $1
+}

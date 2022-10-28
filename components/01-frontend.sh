@@ -3,38 +3,38 @@
 source components/00-commons.sh
 CHECKUSER
 
-echo "Installing NGINX.."
-yum install nginx -y > /tmp/frontendoutput
+ECHO "Installing NGINX.."
+yum install nginx -y > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "Enabling NGINX.."
-systemctl enable nginx > /tmp/frontendoutput
+ECHO "Enabling NGINX.."
+systemctl enable nginx > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "Downloading frontend.zip.."
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" > /tmp/frontendoutput
+ECHO "Downloading frontend.zip.."
+curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-cd /usr/share/nginx/html > /tmp/frontendoutput
+cd /usr/share/nginx/html > /tmp/frontendoutput.log
 
-echo "removing old files.."
-rm -rf * > /tmp/frontendoutput
+ECHO "removing old files.."
+rm -rf * > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "unzipping frontend.zip.."
-unzip /tmp/frontend.zip > /tmp/frontendoutput
+ECHO "unzipping frontend.zip.."
+unzip /tmp/frontend.zip > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "copying extracted content.."
-mv frontend-main/* . > /tmp/frontendoutput
-mv static/* . > /tmp/frontendoutput
-rm -rf frontend-main README.md > /tmp/frontendoutput
+ECHO "copying extracted content.."
+mv frontend-main/* . > /tmp/frontendoutput.log
+mv static/* . > /tmp/frontendoutput.log
+rm -rf frontend-main README.md > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "copying nginx roboshop config.."
-mv localhost.conf /etc/nginx/default.d/roboshop.conf > /tmp/frontendoutput
+ECHO "copying nginx roboshop config.."
+mv localhost.conf /etc/nginx/default.d/roboshop.conf > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
 
-echo "restarting nginx.."
-systemctl restart nginx > /tmp/frontendoutput
+ECHO "restarting nginx.."
+systemctl restart nginx > /tmp/frontendoutput.log
 COMMANDSTATUSCHEK $?
