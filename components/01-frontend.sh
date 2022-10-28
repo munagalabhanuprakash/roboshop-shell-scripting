@@ -4,7 +4,7 @@ source components/00-commons.sh
 CHECKUSER
 
 ECHO "Installing NGINX.."
-yum install nginx -y >>${LOG_FILE}
+yumss install nginx -y >>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
 ECHO "Enabling NGINX.."
