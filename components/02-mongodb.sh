@@ -26,8 +26,6 @@ ECHO "Download the schema and load it."
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
-cd mongodb-main &&
-
 ECHO "Unzip the schema"
 cd /tmp && unzip -o mongodb.zip &>>${LOG_FILE} && cd mongodb-main
 
