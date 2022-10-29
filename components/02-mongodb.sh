@@ -28,6 +28,7 @@ COMMANDSTATUSCHEK $?
 
 ECHO "Unzip the schema"
 cd /tmp && unzip -o mongodb.zip &>>${LOG_FILE} && cd mongodb-main
+COMMANDSTATUSCHEK $?
 
 ECHO "Load Schema"
 mongo < catalogue.js &>>${LOG_FILE} && mongo < users.js &>>${LOG_FILE}
