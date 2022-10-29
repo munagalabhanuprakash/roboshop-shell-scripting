@@ -7,7 +7,7 @@ ECHO "Setup MongoDB repos."
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
-ECHO "Install Mongo & Start Service."
+ECHO "Install MongoDB"
 yum install -y mongodb-org &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
@@ -26,8 +26,10 @@ ECHO "Download the schema and load it."
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>${LOG_FILE}
 COMMANDSTATUSCHEK $?
 
+cd mongodb-main &&
+
 ECHO "Unzip the schema"
-cd mongodb-main && cd /tmp && unzip -o mongodb.zip &>>${LOG_FILE} && cd mongodb-main
+cd /tmp && unzip -o mongodb.zip &>>${LOG_FILE} && cd mongodb-main
 
 ECHO "Load Schema"
 mongo < catalogue.js &>>${LOG_FILE} && mongo < users.js &>>${LOG_FILE}
