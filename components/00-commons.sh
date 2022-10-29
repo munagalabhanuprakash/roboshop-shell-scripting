@@ -21,7 +21,7 @@ else
 fi
 }
 
-LOG_FILE=/tmp/frontendoutput.log
+LOG_FILE=/tmp/output.log
 rm -f $LOG_FILE
 
 ECHO()
