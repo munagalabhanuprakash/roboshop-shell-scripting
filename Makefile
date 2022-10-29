@@ -3,5 +3,6 @@ frontend:
 
 mongodb:
 	@bash components/02-mongodb.sh
-cart:
-	@bash components/02-cart.sh
+
+catalogue:
+	@bash components/03-catalogue.sh
